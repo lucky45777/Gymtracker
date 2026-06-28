@@ -31,19 +31,32 @@ class Main{
         for(User user:users){
             System.out.println(user.getUsername());
         }
-        workouts.add(new Workout("Bench press",60,3,10,"27-06-2026","felt strong"));
-        workouts.add(new Workout("Smith squat",80,3,10,"27-06-2026","strong"));
-        workouts.add(new Workout("Lat Pull downs",30,3,13,"27-06-2026","good"));
+        public static void addWorkout() {
+            System.out.println("Enter your workout details:");
+            System.out.print("Exercise: ");
+            String exercise = input.nextLine();
+            System.out.print("Weight: ");
+            double weight = input.nextDouble();
+            System.out.print("Sets: ");
+            int sets = input.nextInt();
+            System.out.print("Reps: ");
+            int reps = input.nextInt();
+            System.out.println("Date");
+            String date=input.nextline();
+            System.out.print("Notes: ");
+            String notes = input.nextLine();
+            Workout workout = new Workout(exercise, weight, sets, reps, date, notes);
+        }
         System.out.println("-------------------------------------------------");
         System.out.println("              Workout history                     ");
         System.out.println("-------------------------------------------------");
         for(Workout workout:workouts){
-            System.out.println("Exercise : " + workout.getExercise);
-            System.out.println("Weight : " + workout.getWeight);
-            System.out.println("Sets : " + workout.getSets);
-            System.out.println("Reps : " + workout.getReps);
-            System.out.println("Date : " + workout.getDate);
-            System.out.println("Notes : " + workout.getNotes);
+            System.out.println("Exercise : " + workout.getExercise());
+            System.out.println("Weight : " + workout.getWeight());
+            System.out.println("Sets : " + workout.getSets());
+            System.out.println("Reps : " + workout.getReps());
+            System.out.println("Date : " + workout.getDate());
+            System.out.println("Notes : " + workout.getNotes());
             
         }
     }
