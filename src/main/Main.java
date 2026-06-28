@@ -31,6 +31,20 @@ class Main{
         for(User user:users){
             System.out.println(user.getUsername());
         }
-        
+        workouts.add(new Workout("Bench press",60,3,10,"27-06-2026","felt strong"));
+        workouts.add(new Workout("Smith squat",80,3,10,"27-06-2026","strong"));
+        workouts.add(new Workout("Lat Pull downs",30,3,13,"27-06-2026","good"));
+        System.out.println("-------------------------------------------------");
+        System.out.println("              Workout history                     ");
+        System.out.println("-------------------------------------------------");
+        for(Workout workout:workouts){
+            System.out.println("Exercise : " + workout.getExercise);
+            System.out.println("Weight : " + workout.getWeight);
+            System.out.println("Sets : " + workout.getSets);
+            System.out.println("Reps : " + workout.getReps);
+            System.out.println("Date : " + workout.getDate);
+            System.out.println("Notes : " + workout.getNotes);
+            
+        }
     }
 }
