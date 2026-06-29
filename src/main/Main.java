@@ -22,7 +22,7 @@ class Main{
             Workout workout = new Workout(exercise, weight, sets, reps, date, notes);
             workouts.add(workout);
         }
-    public static void viewWorkout(ArrayList<Workout> workouts, Scanner input){
+    public static void viewWorkout(ArrayList<Workout> workouts){
         System.out.println("-------------------------------------------------");
         System.out.println("              Workout history                     ");
         System.out.println("-------------------------------------------------");
@@ -56,28 +56,35 @@ class Main{
         switch(choice){
             case 1:
                 System.out.println("Enter new Exercise name: ");
+                input.nextLine();
                 String newName=input.nextLine();
                 workout.setExerciseName(newName);
+                break;
             case 2:
                 System.out.println("Enter new weight: ");
                 double newWeight=input.nextDouble();
                 workout.setWeight(newWeight);
+                break;
             case 3:
                 System.out.println("Enter new number of sets: ");
                 int newSets=input.nextInt();
                 workout.setSets(newSets);
+                break;
             case 4:
                 System.out.println("Enter new number of reps: ");
                 int newReps=input.nextInt();
                 workout.setReps(newReps);
+                break;
             case 5:
                 System.out.println("Enter new Date: ");
                 String newDate=input.nextLine();
                 workout.setDate(newDate);
+                break;
             case 6:
                 System.out.println("Enter new Notes: ");
                 String newNotes=input.nextLine();
                 workout.setNotes(newNotes);
+                break;
         }
         
     }
@@ -94,7 +101,28 @@ class Main{
         System.out.println("workout removed successfully");
     }
     public static void searchWorkout(ArrayList<Workout> workouts,Scanner input){
-
+        System.out.println("Enter exercise name: ");
+        input.nextLine();
+        String searchName=input.nextLine();
+        boolean found=false;
+        for(Workout workout:workouts){
+            if(workout.getExerciseName().equalsIgnoreCase(searchName)){
+                found=true;
+                if(found){
+                    System.out.println("Exercise found!");
+                    System.out.println("Exercise Name : " + workout.getExerciseName());
+                    System.out.println("Weight : " + workout.getWeight());
+                    System.out.println("Sets : " + workout.getSets());
+                    System.out.println("Reps : " + workout.getReps());
+                    System.out.println("Date : " + workout.getDate());
+                    System.out.println("Notes : " + workout.getNotes());
+                    break;
+                }    
+            }
+        }
+        if(!found){
+            System.out.println("not found");
+        }
     }
     public static void main(String[] args){
         int entry;
@@ -115,7 +143,7 @@ class Main{
             entry=input.nextInt();
             switch(entry){
                 case 1 -> addWorkout(workouts, input);
-                case 2 -> viewWorkout(workouts, input);
+                case 2 -> viewWorkout(workouts);
                 case 3 -> editWorkout(workouts,input);
                 case 4 -> deleteWorkout(workouts, input);
                 case 5 -> searchWorkout(workouts,input);
