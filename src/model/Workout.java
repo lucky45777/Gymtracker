@@ -1,3 +1,4 @@
+package model;
 public class Workout{
     private String exerciseName;
     private double weight;
@@ -5,7 +6,7 @@ public class Workout{
     private int reps;
     private String date;
     private String notes;
-    public Workout(String exerciseName;double weight;int sets;int reps;String date;String notes){
+    public Workout(String exerciseName,double weight,int sets,int reps,String date,String notes){
         this.exerciseName = exerciseName;
         this.weight=weight;
         this.sets = sets;
@@ -31,4 +32,24 @@ public class Workout{
     public String getNotes(){
         return notes;
     }
+     public void setExerciseName(String exerciseName){
+        this.exerciseName=exerciseName;
+    }
+    public void setWeight(double weight){
+        this.weight=weight;
+    }
+    public void setSets(int sets){
+        this.sets=sets;
+    }
+    public void setReps(int reps){
+        this.reps=reps;
+    }
+    public void setDate(String date){
+        this.date=date;
+    }
+    public void setNotes(String notes){
+        this.notes=notes;
+    }
+   
+    
 }
